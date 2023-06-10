@@ -16,7 +16,7 @@ export default function Navbar() {
             className="md:w-20  bg-white md:h-20 w-10 h-10 rounded-full "
             src="https://global-uploads.webflow.com/5e157548d6f7910beea4e2d6/63bec2a12cb463609c6ea96a_Screen%20Shot%202023-01-11%20at%208.21.28%20PM.png"
             alt="Logo"
-            srcset=""
+            srcSet=""
           />
         </Link>
         <nav className=" flex  bg-white gap-1 md:text-2xl md:gap-10 font-bold ">
