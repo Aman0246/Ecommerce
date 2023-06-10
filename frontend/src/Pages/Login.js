@@ -1,19 +1,40 @@
 import React, { useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
+
 import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import toast from 'react-hot-toast';
 
 export default function Signup() {
+
   const [eye, seteye] = useState(false);
   const eyehandle = () => {
     seteye(!eye);
   };
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  const handlesubmit=(e)=>{
+  const navigate=useNavigate()
+  const handlesubmit=async(e)=>{
     e.preventDefault()
-    console.log(email,password)
+    try {
+      let user=await axios.post("/login",{email,password})
+      console.log(user.data.message)
+      if(user.data.status===false){
+        toast.error(user.data.message)
+        navigate("/signup")
+
+      }
+      if(user.data.status===true){
+        console.log(user)
+        toast.success(user.data.messege)
+        navigate("/home")
+      }
+      
+    } catch (error) {
+      console.log(error.message)
+    }
   }
 
   return (
@@ -54,13 +75,13 @@ export default function Signup() {
               )}
             </div>
             <button type="submit"  className="m-auto px-9 py-3 rounded-full font-bold shadow-md bg-blue-300 ">
-              Login
+             Login
             </button>
             <div className="text-l font-bold ">
-              Already have Accout ?{" "}
-              <Link className="underline underline-offset-2" to="/signup">
+              Already have Accout ?
+              <Link className="underline underline-offset-2 text-blue-500   " to="/signup">
                 Sign up
-              </Link>{" "}
+              </Link>
             </div>
           </form>
         </div>

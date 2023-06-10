@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import {Route,Routes} from "react-router-dom"
@@ -9,6 +8,11 @@ import Contect from './Pages/Contect';
 import Login from './Pages/Login';
 import NewProduct from './Pages/NewProduct';
 import Signup from "./Pages/Signup"
+import axios  from 'axios';
+// ''============================================
+axios.defaults.baseURL="http://localhost:7000"
+axios.defaults.withCredentials=true;
+// ''============================================
 function App() {
   return (<>
  <Navbar></Navbar>
