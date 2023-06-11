@@ -25,12 +25,19 @@ export const userSlice = createSlice({
         state.lname=action.payload.data.user.lname
         state.img=action.payload.data.user.img
         state.id=action.payload.data.user._id
+    },
+    logOutRedux:(state,action)=>{
+      state.email=""
+      state.fname=""
+      state.lname=""
+      state.img=""
+      state.id=""
     }
   }
 
 
 })
 
-export const { loginRedux } = userSlice.actions
+export const { loginRedux ,logOutRedux} = userSlice.actions
 
 export default userSlice.reducer

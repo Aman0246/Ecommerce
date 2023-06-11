@@ -14,8 +14,6 @@ export default function Signup() {
     e.preventDefault()
     try {
       let user=await axios.post("/register",{fname:fname,lname:lname,email:email,password:password,img:image})
-      console.log(user.data.message)
-      console.log(user)
       if(user.data.status===false){
         toast.error(user.data.message) }
         if(user.data.status===true)
