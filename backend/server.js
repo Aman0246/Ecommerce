@@ -2,6 +2,10 @@ const express =require("express")
 const app=express()
 const{routes}=require("./Routes/routes")
 const cors=require("cors")
+// ??+++++++=============================================
+var cookieParser = require('cookie-parser')
+app.use(cookieParser())
+// ??+++++++=============================================
 //============================================
 app.use(cors({origin: true, credentials: true}));
 

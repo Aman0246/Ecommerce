@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
+import { useDispatch, useSelector} from 'react-redux'
 
 import { AiFillEye } from "react-icons/ai";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from 'react-hot-toast';
+import {loginRedux} from "../Redux/userSlice"
 
 export default function Signup() {
 
@@ -13,6 +15,15 @@ export default function Signup() {
   const eyehandle = () => {
     seteye(!eye);
   };
+
+  //=====================================
+  const useData=useSelector(state=>state)
+  // console.log(useData.user)
+
+  const dispatch=useDispatch()
+
+  //=====================================
+
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const navigate=useNavigate()
@@ -20,17 +31,18 @@ export default function Signup() {
     e.preventDefault()
     try {
       let user=await axios.post("/login",{email,password})
-      console.log(user.data.message)
       if(user.data.status===false){
         toast.error(user.data.message)
         navigate("/signup")
-
       }
       if(user.data.status===true){
-        console.log(user)
-        toast.success(user.data.messege)
+        //=========================================
+        dispatch(loginRedux(user))
+        //=========================================
+        toast.success(useData.user.fname+" "+user.data.messege)
         navigate("/home")
       }
+      console.log(useData.user)
       
     } catch (error) {
       console.log(error.message)

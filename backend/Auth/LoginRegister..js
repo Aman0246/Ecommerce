@@ -2,6 +2,7 @@ const {UserModel}=require("../Models/LRmodel")
 const {validString}=require("../utils/index")
 const {hassPassword,compare}=require("../bcrypt/bcrypt")
 var jwt = require('jsonwebtoken');
+const { request } = require("express");
 
 const register=async(req,res)=>{
     const{fname,lname,email,password,img}=req.body
@@ -29,7 +30,7 @@ const login=async(req,res)=>{
     if(!cpassword) return res.status(200).send({status:false,message:"Wrong Password"})
     var token = jwt.sign({id:olduser._id},process.env.SKEY);
     res.cookie("token",token)
-    res.status(200).send({status:true,messege:"Login successfull",token:token})
+    res.status(200).send({status:true,messege:"Login successfull",token:token,user:olduser  })
     
 } catch (error) {
     res.status(500).send({status:false,message:error.message})
@@ -37,10 +38,10 @@ const login=async(req,res)=>{
 }
 
 
+const logOut=async(req,res)=>{
+    // let token= req.cookies["token"]
+    // console.log(token)
+    res.clearCookie("token")
+    return res.status(200).send({status:true,message:"logOut Succesfully"})}
 
-
-
-
-
-
-module.exports={register,login}
+module.exports={register,login,logOut}
