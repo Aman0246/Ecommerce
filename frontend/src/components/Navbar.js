@@ -24,7 +24,7 @@ export default function Navbar() {
   }
 
   return (
-    <div className=" w-full pt-2 fixed flex flex-wrap  bg-white shadow-md items-center  justify-between px-5 pb-2 md:px-10 ">
+    <div className=" w-full pt-2 z-10 fixed flex flex-wrap  bg-white shadow-md items-center  justify-between px-5 pb-2 md:px-10 ">
       <Link to="/">
         <img
           className="md:w-20  bg-white md:h-20 w-10 h-10 rounded-full "

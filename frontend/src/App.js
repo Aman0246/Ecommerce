@@ -10,20 +10,27 @@ import NewProduct from './Pages/NewProduct';
 import Signup from "./Pages/Signup"
 import axios  from 'axios';
 import { useEffect } from 'react';
+import {setDataProduct} from "./Redux/ProductSlice"
+import { useDispatch, useSelector } from 'react-redux';
 // ''============================================
 axios.defaults.baseURL="http://localhost:7000"
 axios.defaults.withCredentials=true;
 // ''============================================
 
 function App() {
-    //============================================ =====
-    useEffect(()=>{(async()=>{
+  //============================================ =====
+  let dispatch=useDispatch()
+  let use=useSelector((state) => state.product)
+
+  //================================================
+    useEffect(()=>(async()=>{
       const allproducts= await axios.get("/allproduct")
-      console.log(allproducts.data.data)
+      // console.log(allproducts.data.data)  
+      dispatch(setDataProduct(allproducts.data.data))
       // const jsonDeta= await allproducts.json()
-      // console.log(allproducts)
- })()
-},[])
+    })
+    ,[])
+    // console.log(use)
       //============================================ =====
     return (<>
  <Navbar></Navbar>
