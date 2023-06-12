@@ -14,7 +14,7 @@ export default function Navbar() {
     setmenu(!showmenu);
   };
   
-  
+
   const dispatch=useDispatch()
   const handleLogout=async()=>{
     await axios.get("/logout")
@@ -92,13 +92,14 @@ export default function Navbar() {
                 onClick={handleUserMenu}
                 className="whitespace-nowrap cursor-pointer hover:bg-gray-100 px-5 rounded-lg"
               >
-                <Link to="newProduct"> New Product</Link>
+                  {process.env.REACT_APP_ADMIN_LOGIN==userData.email && <Link to="newProduct"> New Product</Link> }
+               
               </p>
               <p
                 onClick={handleUserMenu}
                 className="whitespace-nowrap cursor-pointer hover:bg-gray-100 px-5 rounded-lg"
               >
-                {userData.id?(<Link  className="text-red-500 " onClick={handleLogout} to="/home">Logout</Link>):(<Link to="/login">Login</Link>)}
+                {userData.id?(<Link  className="text-red-500 " onClick={handleLogout} to="/home">Logout ({userData.fname})</Link>):(<Link to="/login">Login</Link>)}
                 
               </p>
             </div>

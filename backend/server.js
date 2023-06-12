@@ -10,10 +10,12 @@ app.use(cookieParser())
 app.use(cors({origin: true, credentials: true}));
 
 //============================================
+app.use(express.json({ limit: "10mb" }));
+
+//============================================
 require('dotenv').config()
 const mongoose=require("mongoose")
 mongoose.connect(process.env.MONGOCONNECT).then(()=>console.log("mongoose is connected....")).catch((e)=>{console.log("mongose is not connected")})
-app.use(express.json())
 app.use("/",routes)
 app.listen(process.env.PORT,()=>{
     console.log(`running at ${process.env.PORT}`)

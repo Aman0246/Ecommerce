@@ -9,12 +9,23 @@ import Login from './Pages/Login';
 import NewProduct from './Pages/NewProduct';
 import Signup from "./Pages/Signup"
 import axios  from 'axios';
+import { useEffect } from 'react';
 // ''============================================
 axios.defaults.baseURL="http://localhost:7000"
 axios.defaults.withCredentials=true;
 // ''============================================
+
 function App() {
-  return (<>
+    //============================================ =====
+    useEffect(()=>{(async()=>{
+      const allproducts= await axios.get("/allproduct")
+      console.log(allproducts.data.data)
+      // const jsonDeta= await allproducts.json()
+      // console.log(allproducts)
+ })()
+},[])
+      //============================================ =====
+    return (<>
  <Navbar></Navbar>
  <div className='h-full' >
 
