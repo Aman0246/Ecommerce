@@ -1,13 +1,16 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { GrCaretNext } from 'react-icons/gr';
 import { GrCaretPrevious } from 'react-icons/gr';
+
 import c2 from "./img/c2.png";
-import { useSelector } from "react-redux";
+import { useSelector, useStore } from "react-redux";
 import Homecard from "../components/HomeCard/Homecard";
 import Loader from "../components/Loader/Loader"
 import CardVegetable from "../components/CardVegetable";
+import FilterProduct from "../components/FilterProduct";
 
 export default function Home() {
+  //==============================================================
   let prev=useRef()
   const prevoisproduct=()=>{
  
@@ -16,6 +19,9 @@ export default function Home() {
   const NextProduct=()=>{
     prev.current.scrollLeft += 250;  
   }
+//==============================================================
+
+
 
   //=============================================================
   const allProductData=useSelector((state)=>state.product)
@@ -27,9 +33,31 @@ export default function Home() {
   // console.log(allProductData.productList)
   let data=allProductData.productList
   const handleCardVegetable=data.filter(e=> e.category=="Vegetable")
-  console.log(handleCardVegetable)
+  // console.log(handleCardVegetable)
+  //=======================================================
+  
+const categoryList= [...new Set(data.map((e)=>e.category))]
+// console.log(categoryList)
+
+const[filterby,setfilterBy]=useState("")
+const[dataFilter,setDataFilter]=useState([])
+useEffect(()=>{
+setDataFilter(data)
+},[data])
+const handleFilterProducts=(category)=>{
+  const filter=data.filter(e=>e.category.toLowerCase() ==  category.toLowerCase())
+  setDataFilter(()=>{
+        return[
+          ...filter
+        ]
+  })
+  
+}
+
+
+  //=======================================================
   return (
-    <div className=" w-full bg-gray-200 h-[200vh] md:pt-[98px] pt-[70px] px-5 ">
+    <div className=" w-full bg-gray-200 h-full md:pt-[98px] pt-[70px] px-5 ">
       <div className="md:flex   md:mt-5  flex-wrap">
         <div className="md:w-1/2">
           <div className=" relative  z-1 flex pt-3 shadow-md border-2 border-gray-200 rounded-full  bg-gray-300 w-[10rem]">
@@ -100,6 +128,39 @@ export default function Home() {
           )}):(<Loader></Loader>)}
         
 
+
+        </div>
+      </div>
+      <div className="my-5 ">
+        <h2 className="font-bold text-2xl text-slate-800 mb-4">
+        All Products
+        </h2>
+        <div className="  overflow-scroll  scrollbar-none justify-center items-center text-center flex ">
+            
+        
+
+
+        { categoryList[0]&&categoryList.map(e => {
+          return(
+          <FilterProduct category={e} onClick={()=>handleFilterProducts(e)} />)})
+          }
+        </div>
+        <div className="flex flex-wrap justify-center gap-4">
+
+{
+  dataFilter.map(e=>{
+    return(
+      <CardVegetable
+      key={e.id}
+      image={e.image}
+      name={e.name}
+      category={e.category}
+      
+      
+      ></CardVegetable>
+    )
+  })
+}
 
         </div>
       </div>

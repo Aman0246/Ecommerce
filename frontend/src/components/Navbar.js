@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
-import { useSelector,useDispatch } from "react-redux";
-import {logOutRedux} from "../Redux/userSlice"
+import { useSelector, useDispatch } from "react-redux";
+import { logOutRedux } from "../Redux/userSlice";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 export default function Navbar() {
@@ -13,19 +13,17 @@ export default function Navbar() {
   const handleUserMenu = () => {
     setmenu(!showmenu);
   };
-  
 
-  const dispatch=useDispatch()
-  const handleLogout=async()=>{
-    await axios.get("/logout")
-    dispatch(logOutRedux())
-    toast.success("Logout")
-
-  }
+  const dispatch = useDispatch();
+  const handleLogout = async () => {
+    await axios.get("/logout");
+    dispatch(logOutRedux());
+    toast.success("Logout");
+  };
 
   return (
-    <div className=" w-full pt-2 z-10 fixed flex flex-wrap  bg-white shadow-md items-center  justify-between px-5 pb-2 md:px-10 ">
-      <Link to="/">
+    <div className=" w-full  pt-2 z-10 fixed flex flex-wrap  bg-white shadow-md items-center  justify-between px-5 pb-2 md:px-10 ">
+       <Link to="/home">
         <img
           className="md:w-20  bg-white md:h-20 w-10 h-10 rounded-full "
           src="https://global-uploads.webflow.com/5e157548d6f7910beea4e2d6/63bec2a12cb463609c6ea96a_Screen%20Shot%202023-01-11%20at%208.21.28%20PM.png"
@@ -33,7 +31,7 @@ export default function Navbar() {
           srcSet=""
         />
       </Link>
-      <nav className=" flex  bg-white gap-1 md:text-2xl md:gap-10 font-bold ">
+      <nav className=" md:flex  hidden bg-white gap-1 md:text-2xl md:gap-10 font-bold ">
         <Link
           className=" hover:underline  bg-white hover:text-orange-400 underline-offset-2 "
           to="/home"
@@ -87,21 +85,60 @@ export default function Navbar() {
             )}
           </div>
           {showmenu && (
+            <div>
+
             <div className="absolute right-0 bg-white py-2 px-2 shadow drop-shadow-md ">
               <p
                 onClick={handleUserMenu}
                 className="whitespace-nowrap cursor-pointer hover:bg-gray-100 px-5 rounded-lg"
-              >
-                  {process.env.REACT_APP_ADMIN_LOGIN==userData.email && <Link to="newProduct"> New Product</Link> }
-               
+                >
+                {process.env.REACT_APP_ADMIN_LOGIN == userData.email && (
+                  <Link to="newProduct"> New Product</Link>
+                  )}
               </p>
+              <div className="flex flex-col justify-center items-center md:hidden">
+              <Link
+          className=" hover:underline  bg-white hover:text-orange-400 underline-offset-2 "
+          to="/home"
+        >
+          Home
+        </Link>
+        <Link
+          className=" hover:underline  bg-white hover:text-orange-400 underline-offset-2  "
+          to="/menu"
+        >
+          Menu
+        </Link>
+        <Link
+          className=" hover:underline  bg-white hover:text-orange-400 underline-offset-2  "
+          to="/about"
+        >
+          About
+        </Link>
+        <Link
+          className=" hover:underline  bg-white hover:text-orange-400 underline-offset-2  "
+          to="/contect"
+        >
+          Contect
+        </Link>
+              </div>
               <p
                 onClick={handleUserMenu}
                 className="whitespace-nowrap cursor-pointer hover:bg-gray-100 px-5 rounded-lg"
-              >
-                {userData.id?(<Link  className="text-red-500 " onClick={handleLogout} to="/home">Logout ({userData.fname})</Link>):(<Link to="/login">Login</Link>)}
-                
+                >
+                {userData.id ? (
+                  <Link
+                  className="text-red-500 "
+                  onClick={handleLogout}
+                  to="/home"
+                  >
+                    Logout ({userData.fname})
+                  </Link>
+                ) : (
+                  <Link to="/login">Login</Link>
+                  )}
               </p>
+                  </div>
             </div>
           )}
         </div>

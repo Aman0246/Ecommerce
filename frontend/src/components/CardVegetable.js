@@ -4,7 +4,7 @@ export default function CardVegetable( {name,category,price,image}) {
   return (
     <div>
 
- <div className='mr-10 mt-5 flex-col min-w-[210px]  px-4 shadow-md flex rounded-3xl bg-white '>
+ <div className='mr-10 mt-5 flex-col min-w-[210px]  max-w-[200] px-4 shadow-md flex rounded-3xl bg-white '>
 
     <img className=' h-[10rem] w-[10rem] p-3 rounded-3xl' src={image} alt="" srcset="" />
     <div className='flex flex-col text-center justify-center items-center pt-3 pb-2 '>
