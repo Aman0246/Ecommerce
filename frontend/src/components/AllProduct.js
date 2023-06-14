@@ -34,7 +34,7 @@ export default function AllProduct() {
     All Products
       <div className='w-full h-[1px] bg-black m-5'></div>
     </h2>
-    <div className="  overflow-scroll  scrollbar-none justify-center items-center text-center flex ">
+    <div className=" overflow-scroll  scrollbar-none justify-center items-center text-center flex ">
         
     
 
@@ -44,7 +44,7 @@ export default function AllProduct() {
       <FilterProduct category={e} onClick={()=>handleFilterProducts(e)} />)})
       }
     </div>
-    <div className="flex flex-wrap justify-center gap-4">
+    <div className="flex   flex-wrap justify-center gap-4">
 
 {
 dataFilter.map((e,i)=>{

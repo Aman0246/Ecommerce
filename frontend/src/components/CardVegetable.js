@@ -18,7 +18,7 @@ const dispatch=useDispatch()
   return (
     <div>
 
- <div className='mr-10 mt-5 flex-col a min-w-[210px] max-w-[200] p-4 shadow-md flex rounded-3xl bg-white '>
+ <div className='mr-10 mt-5 flex-col d min-w-[210px] max-w-[200] p-4 shadow-md flex rounded-3xl bg-white '>
 
         <Link to={`/menu/${id}`} onClick={()=>window.scrollTo({top:0,behavior: "smooth"})}>
     <img className=' h-[10rem] w-[10rem] p-3 rounded-3xl' src={image} alt="" srcset="" />
