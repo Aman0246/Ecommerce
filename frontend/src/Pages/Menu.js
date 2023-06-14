@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Loader from '../components/Loader/Loader'
 import AllProduct from '../components/AllProduct'
 import { addCartItem } from '../Redux/ProductSlice'
@@ -12,7 +12,6 @@ export default function  Menu() {
   const dispatch=useDispatch()
   console.log(produData)
   const handleAddToCart=(e)=>{
-    console.log(e)
 
       dispatch(addCartItem({ 
         name:e.name,
@@ -20,8 +19,8 @@ export default function  Menu() {
         description:e.description,
         category:e.category,
         image:e.image,
-        // name:proata[0].name
-        // name:produData[0].name
+        _id:e._id
+
       }))
       
     }  
@@ -41,7 +40,7 @@ export default function  Menu() {
       <p className=' font-bold md:text-2xl'><span className='text-red-500'>₹</span> <span>{productDisplay[0].price}</span></p>
 <div className='flex gap-3'>
       <button  className='bg-yellow-500 px-5 rounded-lg hover:bg-yellow-600 font-bold  py-2 min-w-[100px]'> Buy </button>
-      <button onClick={()=>{handleAddToCart(productDisplay[0])}} className='bg-yellow-500 px-5 rounded-lg hover:bg-yellow-600 font-bold  py-2 min-w-[100px]'>Add Cart</button>
+     <Link to={"/cart"}> <button onClick={()=>{handleAddToCart(productDisplay[0])}} className='bg-yellow-500 px-5 rounded-lg hover:bg-yellow-600 font-bold  py-2 min-w-[100px]'>Add Cart</button></Link>
 
 
 </div>
@@ -53,11 +52,7 @@ export default function  Menu() {
 
 
         </div>
-):( <div className='w-full  bg-white  m-auto '>
-<div className=' flex justify-center h-[100vh] items-center shadow drop-shadow'>
- <Loader/>
-</div>
-</div>)}
+):(<div></div> )}
       </div>
 <AllProduct></AllProduct>
 
