@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { GrCaretNext } from 'react-icons/gr';
 import { GrCaretPrevious } from 'react-icons/gr';
-
+import "./a.css"
 import c2 from "./img/c2.png";
 import { useSelector, useStore } from "react-redux";
 import Homecard from "../components/HomeCard/Homecard";
@@ -57,7 +57,7 @@ const handleFilterProducts=(category)=>{
 
   //=======================================================
   return (
-    <div className=" w-full bg-gray-200 h-full md:pt-[98px] pt-[70px] px-5 ">
+    <div className=" w-full a bg-gray-200 h-full md:pt-[98px] pt-[70px] px-5 ">
       <div className="md:flex   md:mt-5  flex-wrap">
         <div className="md:w-1/2">
           <div className=" relative  z-1 flex pt-3 shadow-md border-2 border-gray-200 rounded-full  bg-gray-300 w-[10rem]">
@@ -90,20 +90,8 @@ const handleFilterProducts=(category)=>{
           <button className="font-bold mb-15 bg-red-500 px-3 py-1 mt-2  rounded-full">Order Now</button>
         </div>
         <div className="md:w-1/2 flex flex-wrap gap-5 p-4 justify-center">
-          
-           {homeProducts[0]?homeProducts.map((e,i)=>{
-            return(
-              <div key={i}>
-
-              <Homecard 
-              category={e.category}
-              description={e.description}
-              id={e._id}
-              image={e.image}
-              name={e.name}
-              price={e.price}
-              ></Homecard>
-              </div>) }):(<Loader></Loader>)}
+        <img src="https://media.easemytrip.com/media/Blog/India/636977607425696252/636977607425696252QYiiUU.jpg"  />  
+        
         </div>
       </div>
       <div className="">

@@ -18,7 +18,7 @@ const selector=useSelector((state) => state.product)
 console.log(selector)
 
   return (
-    <div className="bg-slate-300 my-2 w-full md:p-2 md:ml-5 md:w-[60rem] flex ">
+    <div className="bg-slate-300 a my-2 w-full md:p-2 md:ml-5 md:w-[60rem] flex ">
       <img
         src={image}
         className=" md:h-60 md:w-60 h-60 w-40 object-cover p-3"
@@ -33,7 +33,7 @@ console.log(selector)
           <BsFillTrashFill></BsFillTrashFill>
 
           </div>
-          <p className=" text-slate-500 md:text-2xl font-medium ">{category}</p>
+          <p className=" text-slate-900 md:text-2xl font-medium ">{category}</p>
           <p className=" font-bold md:text-2xl">
             <span className="text-red-500">₹</span> <span>{price}</span>
           </p>
@@ -53,10 +53,10 @@ console.log(selector)
                         </div>  
           </div>
 
-          <p className="text-slate-600 md:text-2xl text-xl font-sm pt-5">
+          <p className="text-slate-900 font-bold md:text-2xl text-xl font-sm pt-5">
             Description:
           </p>
-          <p className="text-slate-500 md:text-xl ">{description}</p>
+          <p className="text-slate-900 md:text-xl ">{description}</p>
         </div>
       </div>
     </div>

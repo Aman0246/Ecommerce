@@ -29,7 +29,7 @@ export default function AllProduct() {
     
   }
   return (
-    <div className="my-5 ">
+    <div className=" -my-1 b ">
     <h2 className="font-bold px-10  text-2xl text-slate-800 mb-4">
     All Products
       <div className='w-full h-[1px] bg-black m-5'></div>

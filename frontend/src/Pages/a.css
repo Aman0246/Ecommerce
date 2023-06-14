@@ -1,0 +1,22 @@
+.a{
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(182, 182, 182, 0.5)), url("https://thumbs.dreamstime.com/b/traditional-indian-thali-selection-various-dishes-served-round-wooden-platter-assorted-vegetarian-meze-boiled-basmati-202736658.jpg");
+    /* background-image: url(); */
+       background-repeat: no-repeat;
+       /* box-shadow: 0 0 8px 8px gray; */
+       background-position: center;
+       background-size: cover;
+       
+    }
+
+
+
+
+ .c{
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(182, 182, 182, 0.5)), url("https://assets.gqindia.com/photos/5d88befa1783960008898658/master/w_866,h_956,c_limit/Status%20veg%20restaurant.jpg");
+    /* background-image: url(); */
+       background-repeat: no-repeat;
+       /* box-shadow: 0 0 8px 8px gray; */
+       background-position: center;
+       background-size: cover;
+       
+} 

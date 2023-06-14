@@ -27,16 +27,16 @@ export default function  Menu() {
 
   return (
     <div>
-         <div className='pt-[100px] px-10' >
+         <div className='pt-[100px] b px-10' >
         { productDisplay[0]?(
-        <div className='w-full max-w-4xl m-auto gap-7 p-1 md:p-4 md:flex '>
+        <div className='w-full a max-w-4xl m-auto gap-7 p-1 md:p-4 md:flex '>
           <div className='  overflow-hidden '>
             <img src={productDisplay[0].image} className='hover:scale-105 h-full transition-all' alt="" srcset="" />
           </div>
 <div>
 
           <h3 className='pt-2 md:text-4xl font-semibold text-lg  text-black  capitalize'>{productDisplay[0].name}</h3>
-      <p className=' text-slate-500 md:text-2xl font-medium '>{productDisplay[0].category}</p>
+      <p className=' text-slate-900 md:text-2xl font-medium '>{productDisplay[0].category}</p>
       <p className=' font-bold md:text-2xl'><span className='text-red-500'>₹</span> <span>{productDisplay[0].price}</span></p>
 <div className='flex gap-3'>
       <button  className='bg-yellow-500 px-5 rounded-lg hover:bg-yellow-600 font-bold  py-2 min-w-[100px]'> Buy </button>
@@ -45,8 +45,8 @@ export default function  Menu() {
 
 </div>
 
-<p className='text-slate-600 md:text-2xl text-xl font-sm pt-5'>Description:</p>
-<p  className='text-slate-500 md:text-xl '>{productDisplay[0].description}</p>
+<p className='text-slate-900 md:text-2xl text-xl font-sm pt-5'>Description:</p>
+<p  className='text-slate-900 md:text-xl '>{productDisplay[0].description}</p>
 </div>
 
 

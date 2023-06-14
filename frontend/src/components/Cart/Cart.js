@@ -7,7 +7,7 @@ export default function Cart() {
   const productCartItems = useSelector((state) => state.product.cartItem);
 
   return (
-    <div className="pt-[95px] md:flex  md:gap-8 ">
+    <div className="pt-[95px]  md:flex  md:gap-8 ">
 {productCartItems[0]?(<>
         <div className="">
 
