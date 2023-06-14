@@ -8,7 +8,9 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 export default function Navbar() {
   const userData = useSelector((state) => state.user);
-  console.log(userData);
+  const CartData=useSelector((state)=>state.product.cartItem)
+  const countcartData=CartData.length
+  // console.log(userData);
   const [showmenu, setmenu] = useState(false);
   const handleUserMenu = () => {
     setmenu(!showmenu);
@@ -50,7 +52,7 @@ export default function Navbar() {
         >
           About
         </Link>
-        <Link
+        <Link 
           className=" hover:underline  bg-white hover:text-orange-400 underline-offset-2  "
           to="/contect"
         >
@@ -60,10 +62,10 @@ export default function Navbar() {
       <div className=" text-gray-500 md:text-2xl  bg-white flex gap-3 md:gap-7">
         <div className=" relative">
           <div className="absolute text-sm  flex justify-center items-center rounded-lg -top-2 -right-1 text-white bg-red-500 h-4 w-4 p-0">
-            0
+            {countcartData}
           </div>
           <div className=" hover:text-2xl cursor-pointer hover:text-gray-700">
-            <FaShoppingCart></FaShoppingCart>
+          <Link to={"/cart"}> <FaShoppingCart></FaShoppingCart></Link>  
           </div>
         </div>
         <div className="relative  ">

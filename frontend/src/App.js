@@ -12,6 +12,7 @@ import axios  from 'axios';
 import { useEffect } from 'react';
 import {setDataProduct} from "./Redux/ProductSlice"
 import { useDispatch, useSelector } from 'react-redux';
+import Cart from './components/Cart/Cart';
 // ''============================================
 axios.defaults.baseURL="http://localhost:7000"
 axios.defaults.withCredentials=true;
@@ -38,12 +39,15 @@ function App() {
 
  <Routes>
  <Route path="/home" element={<Home/>} ></Route> 
- <Route path="/menu" element={<Menu/>} ></Route> 
+ <Route path="/" element={<Home/>} ></Route> 
+ <Route path="/menu" element={<Menu/>} ></Route>  
+ <Route path="/menu/:filterby" element={<Menu/>} ></Route> 
  <Route path="/about" element={<About/>} ></Route> 
  <Route path="/login" element={<Login/>} ></Route> 
  <Route path="/contect" element={<Contect/>} ></Route> 
  <Route path="/newProduct" element={<NewProduct/>} ></Route> 
  <Route path="/signup" element={<Signup/>} ></Route> 
+ <Route path="/cart" element={<Cart/>} ></Route> 
 </Routes>
 
  </div>

@@ -8,6 +8,7 @@ import Homecard from "../components/HomeCard/Homecard";
 import Loader from "../components/Loader/Loader"
 import CardVegetable from "../components/CardVegetable";
 import FilterProduct from "../components/FilterProduct";
+import AllProduct from "../components/AllProduct";
 
 export default function Home() {
   //==============================================================
@@ -20,7 +21,6 @@ export default function Home() {
     prev.current.scrollLeft += 250;  
   }
 //==============================================================
-
 
 
   //=============================================================
@@ -98,6 +98,7 @@ const handleFilterProducts=(category)=>{
               <Homecard 
               category={e.category}
               description={e.description}
+              id={e._id}
               image={e.image}
               name={e.name}
               price={e.price}
@@ -120,6 +121,7 @@ const handleFilterProducts=(category)=>{
               <div key={i}>
              <CardVegetable
              name={e.name}
+             id={e._id}
              category={e.category}
              price={e.price}
              image={e.image}
@@ -131,39 +133,8 @@ const handleFilterProducts=(category)=>{
 
         </div>
       </div>
-      <div className="my-5 ">
-        <h2 className="font-bold text-2xl text-slate-800 mb-4">
-        All Products
-        </h2>
-        <div className="  overflow-scroll  scrollbar-none justify-center items-center text-center flex ">
-            
-        
-
-
-        { categoryList[0]&&categoryList.map(e => {
-          return(
-          <FilterProduct category={e} onClick={()=>handleFilterProducts(e)} />)})
-          }
-        </div>
-        <div className="flex flex-wrap justify-center gap-4">
-
-{
-  dataFilter.map(e=>{
-    return(
-      <CardVegetable
-      key={e.id}
-      image={e.image}
-      name={e.name}
-      category={e.category}
       
-      
-      ></CardVegetable>
-    )
-  })
-}
-
-        </div>
-      </div>
+      <AllProduct/>
     </div>
   );
 }
