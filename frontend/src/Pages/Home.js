@@ -4,17 +4,18 @@ import { GrCaretPrevious } from 'react-icons/gr';
 import "./a.css"
 import c2 from "./img/c2.png";
 import { useDispatch, useSelector, useStore } from "react-redux";
-import Homecard from "../components/HomeCard/Homecard";
+// import Homecard from "../components/HomeCard/Homecard";
 import Loader from "../components/Loader/Loader"
 import CardVegetable from "../components/CardVegetable";
-import FilterProduct from "../components/FilterProduct";
+// import FilterProduct from "../components/FilterProduct";
 import AllProduct from "../components/AllProduct";
 import { setDataProduct } from "../Redux/ProductSlice";
 import axios from "axios";
 
 export default function Home() {
   //==============================================================
- 
+
+
 //===========================================
   let prev=useRef()
   const prevoisproduct=()=>{
