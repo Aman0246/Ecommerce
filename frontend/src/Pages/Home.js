@@ -14,14 +14,7 @@ import axios from "axios";
 
 export default function Home() {
   //==============================================================
-  let dispatch=useDispatch()
-  let use=useSelector((state) => state.product)
-  useEffect(()=>(async()=>{
-    const allproducts= await axios.get("/allproduct")
-    console.log(allproducts)
-     dispatch(setDataProduct(allproducts.data.data))
-  })
-  )
+ 
 //===========================================
   let prev=useRef()
   const prevoisproduct=()=>{
