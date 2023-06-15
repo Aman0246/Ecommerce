@@ -5,13 +5,18 @@ import "./cart.css"
 
 export default function Cart() {
   const productCartItems = useSelector((state) => state.product.cartItem);
+  console.log(productCartItems)
+//=====================================================================================================================
+const totalprice=productCartItems.reduce(	(accumulator,currentvalue)=>accumulator+parseInt(currentvalue.total),0)
+const totalQty=productCartItems.reduce(	(accumulator,currentvalue)=>accumulator+parseInt(currentvalue.qty),0)
+//=====================================================================================================================
 
   return (
     <div className="pt-[95px]  md:flex  md:gap-8 ">
 {productCartItems[0]?(<>
         <div className="">
 
-        <h2 className="text-lg md:text-xl font-bold text-slate-700 md:p-5 p-3">
+        <h2 className="text-lg md:text-xl  font-bold text-slate-700 md:p-5 p-3">
           your Cart items
         </h2>
         <div className="">
@@ -35,14 +40,22 @@ export default function Cart() {
             </div>
             </div>
             
-        </div>
-          <div className="">{/* total Carts items? */}
+        </div>	
+		{/* total Carts items? */}{
+
+		}
+          <div className="w-full md:mt-[75px] text-center md:text-left   md:ml-auto">
           
-          
-          
-          
-          
-          
+             <h2 className="bg-blue-500 text-white p-2 text-lg"   >Summery</h2>
+			   <div className="flex w-full px-5 justify-between text-lg mb-3 border-b-2 ">Total Qty :
+ 			   <p className="font-bold">{totalQty}</p>  
+
+			   </div>
+			   <div className="flex w-full px-5 justify-between text-lg mb-3 border-b-2 ">Total Price :
+			   <p className="font-bold"> <span className="text-red-500 px-2 font-bold">₹</span>{totalprice}</p>  
+
+			   </div>
+			   <button className="bg-red-500 w-full py-2 text-white text-lg font-bold">Payment</button>
           
           
           

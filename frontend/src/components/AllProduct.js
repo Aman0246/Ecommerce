@@ -20,6 +20,7 @@ export default function AllProduct() {
   setDataFilter(data)
   },[data])
   const handleFilterProducts=(category)=>{
+    setfilterBy(category)
     const filter=data.filter(e=>e.category.toLowerCase() ==  category.toLowerCase())
     setDataFilter(()=>{
           return[
@@ -41,7 +42,7 @@ export default function AllProduct() {
 
     { categoryList[0]&&categoryList.map(e => {
       return(
-      <FilterProduct category={e} onClick={()=>handleFilterProducts(e)} />)})
+      <FilterProduct category={e} isActive={e.toLowerCase()==filterby.toLowerCase()} onClick={()=>handleFilterProducts(e)} />)})
       }
     </div>
     <div className="flex   flex-wrap justify-center gap-4">
