@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import CArtProducts from "./CArtProducts";
 import "./cart.css"
+import { toast } from "react-hot-toast";
 
 export default function Cart() {
   const productCartItems = useSelector((state) => state.product.cartItem);
@@ -10,6 +11,18 @@ export default function Cart() {
 const totalprice=productCartItems.reduce(	(accumulator,currentvalue)=>accumulator+parseInt(currentvalue.total),0)
 const totalQty=productCartItems.reduce(	(accumulator,currentvalue)=>accumulator+parseInt(currentvalue.qty),0)
 //=====================================================================================================================
+const isLogin=()=>{
+ 
+	if(localStorage.getItem("token")
+	){toast.success("payment Done")}
+	else{
+		toast.error("please Login")
+	}
+
+}
+
+
+
 
   return (
     <div className="pt-[95px]  md:flex  md:gap-8 ">
@@ -55,7 +68,7 @@ const totalQty=productCartItems.reduce(	(accumulator,currentvalue)=>accumulator+
 			   <p className="font-bold"> <span className="text-red-500 px-2 font-bold">₹</span>{totalprice}</p>  
 
 			   </div>
-			   <button className="bg-red-500 w-full py-2 text-white text-lg font-bold">Payment</button>
+			   <button onClick={isLogin} className="bg-red-500 w-full py-2 text-white text-lg font-bold">Payment</button>
           
           
           

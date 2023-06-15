@@ -14,9 +14,10 @@ import {setDataProduct} from "./Redux/ProductSlice"
 import { useDispatch, useSelector } from 'react-redux';
 import Cart from './components/Cart/Cart';
 // ''============================================
-axios.defaults.baseURL="http://localhost:7000"
+axios.defaults.baseURL=process.env.REACT_APP_PORT
 axios.defaults.withCredentials=true;
 // ''============================================
+console.log(process.env.REACT_APP_PORT)
 
 function App() {
   //============================================ =====

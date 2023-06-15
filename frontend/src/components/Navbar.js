@@ -19,6 +19,7 @@ export default function Navbar() {
   const dispatch = useDispatch();
   const handleLogout = async () => {
     await axios.get("/logout");
+    localStorage.clear("token")
     dispatch(logOutRedux());
     toast.success("Logout");
   };

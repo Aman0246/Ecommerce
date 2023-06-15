@@ -30,9 +30,8 @@ export const productSlice = createSlice({
     }   
     },
     deleteCartItem:(state,action)=>{
-console.log(action.payload)
+// console.log(action.payload)
 const index= state.cartItem.findIndex((e)=>e._id===action.payload)
-
 state.cartItem.splice(index,1)
 toast("one item Removed")
 console.log(index)

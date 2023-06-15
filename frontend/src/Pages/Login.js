@@ -17,7 +17,6 @@ export default function Signup() {
 
   //=====================================
   const useData = useSelector((state) => state);
-  // console.log(useData.user)
   const dispatch = useDispatch();
 
   //=====================================
@@ -36,7 +35,8 @@ export default function Signup() {
       if (user.data.status === true) {
         //=========================================
         dispatch(loginRedux(user));
-        //=========================================
+        localStorage.setItem("token",user.data.token );
+         //=========================================
         toast.success(useData.user.fname + " " + user.data.messege);
         navigate("/home");
       }
