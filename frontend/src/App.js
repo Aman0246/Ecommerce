@@ -21,16 +21,10 @@ console.log(process.env.REACT_APP_PORT)
 
 function App() {
   //============================================ =====
-  let dispatch=useDispatch()
-  let use=useSelector((state) => state.product)
+
 
   //================================================
-    useEffect(()=>(async()=>{
-      const allproducts= await axios.get("/allproduct")
-       dispatch(setDataProduct(allproducts.data.data))
-      // const jsonDeta= await allproducts.json()
-    })
-    ,[])
+
     // console.log(use)
       //============================================ =====
     return (<>
