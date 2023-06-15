@@ -27,8 +27,7 @@ function App() {
   //================================================
     useEffect(()=>(async()=>{
       const allproducts= await axios.get("/allproduct")
-      // console.log(allproducts.data.data)  
-      dispatch(setDataProduct(allproducts.data.data))
+       dispatch(setDataProduct(allproducts.data.data))
       // const jsonDeta= await allproducts.json()
     })
     ,[])
